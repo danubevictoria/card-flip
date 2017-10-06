@@ -1,0 +1,63 @@
+body {
+  background-color: #1D1F20;
+}
+
+#container {
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.flip {
+  width: 150px;
+  height: 200px;
+   margin: auto;
+  position: relative;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.flip > .front {
+  position: absolute;
+  /* animation   */
+  -webkit-transform: perspective( 600px ) rotateY( 0deg );
+  transform: perspective( 600px ) rotateY( 0deg );
+  background-image: url("https://c1.staticflickr.com/3/2615/3890423381_c33e083d34_b.jpg");
+  background-position: -24px -27px;
+  background-size: 432%;
+  width: 150px;
+  height: 205px;
+  border-radius: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .5s linear 0s;
+  transition: -webkit-transform .5s linear 0s;
+}
+
+.flip > .back {
+  position: absolute;
+  -webkit-transform: perspective( 600px ) rotateY( 180deg );
+  transform: perspective( 600px ) rotateY( 180deg );
+  background: url("https://www.murphysmagicsupplies.com/images_email/Mandolin_BACK.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 200px;
+  border-radius: 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .5s linear 0s;
+  transition: -webkit-transform .5s linear 0s;
+}
+
+.flip:hover > .front {
+  transform: perspective( 600px ) rotateY( -180deg );
+  -webkit-transform: perspective( 600px ) rotateY( -180deg );
+}
+
+.flip:hover > .back {
+  transform: perspective( 600px ) rotateY( 0deg );
+  -webkit-transform: perspective( 600px ) rotateY( 0deg );
+}
